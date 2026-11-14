@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ASCII Studio · a garden of letters, by Nandhu</title>
+  <meta name="description" content="ASCII Studio turns photos, videos and your camera into colourful ASCII art. On the web, as a browser extension, and as a desktop app. Made by Nandhu.">
+  <meta name="theme-color" content="#f4ecd8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,600&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#hello">skip to the words</a>
+
+  <!-- ============================================================ HERO -->
+  <header class="hero">
+    <nav class="topnav" aria-label="Sections">
+      <a class="brand" href="#top"><img src="assets/logo.png" alt="" width="34" height="34"> ascii.studio</a>
+      <ul>
+        <li><a href="#hello">hello</a></li>
+        <li><a href="#how">how</a></li>
+        <li><a href="#web">web</a></li>
+        <li><a href="#extension">extension</a></li>
+        <li><a href="#app">app</a></li>
+        <li><a href="#source">source</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-inner" id="top">
+      <p class="eyebrow"><span class="blink">▮</span> booting garden.exe … <span class="ok">ok</span></p>
+      <h1 class="title">
+        <span class="sr-only">ASCII Studio</span>
+        <canvas id="title-art" aria-hidden="true"></canvas>
+      </h1>
+      <p class="tagline">
+        a little studio that redraws the world in <em>letters</em>, <em>numbers</em> &amp; <em>symbols</em>.
+        <span class="scribble">made with too much love by Nandhu ♥</span>
+      </p>
+      <div class="cta">
+        <a class="btn btn-tomato" href="#web">[ open the studio ]</a>
+        <a class="btn btn-teal" href="#extension">[ get the extension ]</a>
+        <a class="btn btn-mustard" href="#app">[ download the app ]</a>
+      </div>
+      <p class="hint">psst — click the ground to plant a flower ↓</p>
+    </div>
+
+    <canvas id="garden" class="garden" aria-label="An animated garden of ASCII flowers. Click to plant more." role="img"></canvas>
+  </header>
+
+  <!-- ============================================================ TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>★ photos → letters ★ videos → letters ★ your webcam → letters ★ your cat → definitely letters ★ 0 trackers ★ 0 uploads ★ 100% on your device ★ free forever ★ made by a human ★</span>
+      <span>★ photos → letters ★ videos → letters ★ your webcam → letters ★ your cat → definitely letters ★ 0 trackers ★ 0 uploads ★ 100% on your device ★ free forever ★ made by a human ★</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- ============================================================ HELLO -->
+    <section class="hello" id="hello">
+      <div class="note paper tilt-l">
+        <span class="tape" aria-hidden="true"></span>
+        <h2>hello, i'm <span class="name">Nandhu</span> <span class="wave" aria-hidden="true">(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</span></h2>
+        <p>
+          This started as a <em>"how does that even work?"</em> moment, looking at artwork made purely out of
+          keyboard characters. One question led to another, and somehow I ended up building a whole studio for it.
+        </p>
+        <p>
+          <b>ASCII Studio</b> takes any picture, video or live camera and redraws it using only characters
+          — dense ones like <code>@ # %</code> where it's bright, light ones like <code>. : ,</code> where it's dark,
+          and little strokes <code>/ | \ -</code> that trace the edges. In full colour, with a soft glow.
+        </p>
+        <p>
+          It lives in three places: <a href="#web">a website</a> anyone can use,
+          <a href="#extension">a browser extension</a>, and <a href="#app">a desktop app</a>.
+          Everything happens on <em>your</em> device. No accounts, no uploads, no tracking. Just letters.
+        </p>
+        <p class="sign">— Nandhu <span class="scribble">(probably still tweaking the glow)</span></p>
+        <a class="gh-link" href="https://github.com/zkp6c4vr89-coder" target="_blank" rel="noopener">
+          <span aria-hidden="true">&lt;/&gt;</span> find me on GitHub
+        </a>
+      </div>
+
+      <figure class="polaroid tilt-r">
+        <pre class="ascii-cat" aria-label="A small ASCII drawing of a cat">
+   /\_/\
+  ( o.o )
+   &gt; ^ &lt;    hi!
+  /     \
+ (  | |  )
+  \_|_|_/ ~</pre>
+        <figcaption>fig. 1 — every pet ever, eventually</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============================================================ HOW -->
+    <section class="how" id="how">
+      <h2 class="section-title"><span class="num">01</span> how does it work?</h2>
+      <p class="section-sub">six tiny steps, done thirty times a second on your graphics card:</p>
+      <ol class="steps">
+        <li><pre aria-hidden="true">▓▓▒▒░░
+▓▒▒░░·</pre><b>shrink</b><span>squash the picture so each pixel becomes one character cell</span></li>
+        <li><pre aria-hidden="true">  ☼
+ 0.82</pre><b>measure</b><span>how bright is each cell? add contrast to taste</span></li>
+        <li><pre aria-hidden="true"> .:-=
+ +*#@</pre><b>pick</b><span>choose a character with exactly that much "ink"</span></li>
+        <li><pre aria-hidden="true"> /‾‾\
+ |  |</pre><b>trace</b><span>where brightness jumps, follow the edge with / | \ -</span></li>
+        <li><pre aria-hidden="true"> ◐ ◑
+ ◒ ◓</pre><b>colour</b><span>tint every character with the picture's own colour</span></li>
+        <li><pre aria-hidden="true"> ✧ ✦
+ ✦ ✧</pre><b>glow</b><span>stamp them all at once, then add a soft bloom</span></li>
+      </ol>
+      <p class="aside scribble">→ the same recipe powers the website, the extension <i>and</i> the app!</p>
+    </section>
+
+    <!-- ============================================================ WEB -->
+    <section class="product" id="web">
+      <h2 class="section-title"><span class="num">02</span> ascii studio, on the web</h2>
+      <div class="window tilt-r">
+        <div class="titlebar"><span>┌─[ studio.web ]</span><span class="controls" aria-hidden="true">[_][□][x]</span></div>
+        <div class="window-body">
+          <div class="copy">
+            <p class="lead">No install. Open it, drop in a photo, and watch it turn into letters.</p>
+            <ul class="ticks">
+              <li>photos, videos or your webcam — on desktop <em>and</em> phones</li>
+              <li>colour, Matrix-green or classic mono</li>
+              <li>sliders for size, contrast, edges, glow, shimmer &amp; speed</li>
+              <li>save images up to 4K, or exactly your screen size for wallpapers</li>
+              <li>record seamless 5 / 10 / 15-second loops</li>
+              <li>copy the art as plain text and paste it anywhere</li>
+              <li>add it to your phone's home screen like an app</li>
+            </ul>
+            <div class="cta">
+              <a class="btn btn-tomato" href="https://zkp6c4vr89-coder.github.io/ascii-studio-web/" target="_blank" rel="noopener">[ open ascii studio → ]</a>
+              <a class="btn btn-ghost" href="https://github.com/zkp6c4vr89-coder/ascii-studio-web" target="_blank" rel="noopener">view the code</a>
+            </div>
+          </div>
+          <pre class="screen" aria-hidden="true"><span class="c1">        .:-=+*##%@@%#*+=-:.</span>
+<span class="c2">     .-+#@@@@@@@@@@@@@@@#+-.</span>
+<span class="c3">   :*@@@%#*+==----==+*#%@@@*:</span>
+<span class="c4">  =@@#=:.    ascii     .:=#@@=</span>
+<span class="c5"> +@%-        studio       -%@+</span>
+<span class="c4">  =@@#=:.  ~ * . * ~   .:=#@@=</span>
+<span class="c3">   :*@@@%#*+==----==+*#%@@@*:</span>
+<span class="c2">     .-+#@@@@@@@@@@@@@@@#+-.</span>
+<span class="c1">        .:-=+*##%@@%#*+=-:.</span></pre>
+        </div>
+        <span class="sticker sticker-pink">free!</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ EXTENSION -->
+    <section class="product" id="extension">
+      <h2 class="section-title"><span class="num">03</span> the browser extension</h2>
+      <div class="window tilt-l">
+        <div class="titlebar teal"><span>┌─[ extension.crx ]</span><span class="controls" aria-hidden="true">[_][□][x]</span></div>
+        <div class="window-body">
+          <div class="copy">
+            <p class="lead">Right-click <em>any</em> image or video on the internet → <b>"Turn into ASCII art"</b>.</p>
+            <p>And every new tab becomes a tiny living wallpaper you can play with:</p>
+            <ul class="scenes">
+              <li><pre aria-hidden="true">~ ~ ~
+ ~(@)~</pre><b>water</b><span>click for ripples</span></li>
+              <li><pre aria-hidden="true">\|/
+/|\</pre><b>butterflies</b><span>they flee your cursor</span></li>
+              <li><pre aria-hidden="true"> . * .
+* @ *</pre><b>fireflies</b><span>they gather round you</span></li>
+              <li><pre aria-hidden="true">1 0 $
+0 # 1</pre><b>rain</b><span>your cursor's an umbrella</span></li>
+              <li><pre aria-hidden="true">\ | /
+-  * -</pre><b>starfield</b><span>click for hyperspace</span></li>
+              <li><pre aria-hidden="true">[ ♥ ]
+[you]</pre><b>your picture</b><span>any photo or video</span></li>
+            </ul>
+            <div class="cta">
+              <a class="btn btn-teal" href="https://addons.mozilla.org/firefox/addon/ascii-studio/" target="_blank" rel="noopener">[ firefox add-ons ]</a>
+              <span class="btn btn-disabled" title="Being reviewed by Google">[ chrome web store — soon ]</span>
+              <a class="btn btn-ghost" href="https://github.com/zkp6c4vr89-coder/ascii-studio-extension" target="_blank" rel="noopener">view the code</a>
+            </div>
+            <p class="small">works in Firefox, Chrome, Brave, Edge, Opera &amp; Arc. While Chrome's review is pending, you can <a href="https://github.com/zkp6c4vr89-coder/ascii-studio-extension#build" target="_blank" rel="noopener">install it yourself from the source</a>.</p>
+          </div>
+        </div>
+        <span class="sticker sticker-mustard">0 trackers</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ APP -->
+    <section class="product" id="app">
+      <h2 class="section-title"><span class="num">04</span> the desktop app</h2>
+      <div class="window tilt-r">
+        <div class="titlebar mustard"><span>┌─[ ASCII Studio.app ]</span><span class="controls" aria-hidden="true">[_][□][x]</span></div>
+        <div class="window-body">
+          <div class="copy">
+            <p class="lead">The whole studio as a real app — plus <b>live ASCII wallpapers</b> that live behind your desktop icons.</p>
+            <ul class="ticks">
+              <li>water, butterflies, fireflies, rain or stars — or your own photo, moving</li>
+              <li>they follow your mouse, slow down on battery &amp; nap when you lock the screen</li>
+              <li>a friendly setup guide the first time you open it</li>
+              <li>lives in your menu bar · can start quietly when you log in</li>
+              <li>set any ASCII picture as your still wallpaper, too</li>
+            </ul>
+
+            <div class="downloads" id="downloads">
+              <p class="detected" id="detected">pick your computer:</p>
+              <a class="dl" data-os="mac-arm" href="https://github.com/zkp6c4vr89-coder/ascii-studio-desktop/releases/download/v1.0.0/ASCII-Studio-1.0.0-mac-arm64.dmg">
+                <span class="dl-ico" aria-hidden="true">[⌘]</span><span><b>macOS</b> Apple Silicon<small>M1, M2, M3, M4… · .dmg</small></span></a>
+              <a class="dl" data-os="mac-intel" href="https://github.com/zkp6c4vr89-coder/ascii-studio-desktop/releases/download/v1.0.0/ASCII-Studio-1.0.0-mac-x64.dmg">
+                <span class="dl-ico" aria-hidden="true">[⌘]</span><span><b>macOS</b> Intel<small>older Macs · .dmg</small></span></a>
+              <a class="dl" data-os="win" href="https://github.com/zkp6c4vr89-coder/ascii-studio-desktop/releases/download/v1.0.0/ASCII-Studio-1.0.0-win-x64.exe">
+                <span class="dl-ico" aria-hidden="true">[▦]</span><span><b>Windows</b> 10 / 11<small>installer · .exe · <i>fresh, not taste-tested yet</i></small></span></a>
+              <a class="dl" data-os="linux" href="https://github.com/zkp6c4vr89-coder/ascii-studio-desktop/releases/download/v1.0.0/ASCII-Studio-1.0.0-linux-x86_64.AppImage">
+                <span class="dl-ico" aria-hidden="true">[$_]</span><span><b>Linux</b> any distro<small>.AppImage · <i>not taste-tested yet</i></small></span></a>
+              <a class="dl" data-os="deb" href="https://github.com/zkp6c4vr89-coder/ascii-studio-desktop/releases/download/v1.0.0/ASCII-Studio-1.0.0-linux-amd64.deb">
+                <span class="dl-ico" aria-hidden="true">[$_]</span><span><b>Debian / Ubuntu</b><small>.deb · <i>not taste-tested yet</i></small></span></a>
+            </div>
+
+            <details class="howto">
+              <summary>first time opening it? (it isn't signed with a pricey certificate, so…)</summary>
+              <ul>
+                <li><b>macOS:</b> drag it into Applications, then right-click it › <b>Open</b> › <b>Open</b>. If macOS says it's "damaged", run <code>xattr -cr "/Applications/ASCII Studio.app"</code> in Terminal once.</li>
+                <li><b>Windows:</b> if a blue SmartScreen box appears, click <b>More info › Run anyway</b>.</li>
+                <li><b>Linux:</b> <code>chmod +x ASCII-Studio-*.AppImage</code> and run it, or <code>sudo apt install ./ASCII-Studio-*.deb</code>.</li>
+              </ul>
+            </details>
+            <div class="cta">
+              <a class="btn btn-ghost" href="https://github.com/zkp6c4vr89-coder/ascii-studio-desktop/releases/latest" target="_blank" rel="noopener">all releases</a>
+              <a class="btn btn-ghost" href="https://github.com/zkp6c4vr89-coder/ascii-studio-desktop" target="_blank" rel="noopener">view the code</a>
+            </div>
+          </div>
+        </div>
+        <span class="sticker sticker-teal">v1.0.0</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ SOURCE -->
+    <section class="source" id="source">
+      <h2 class="section-title"><span class="num">05</span> it's all open source</h2>
+      <p class="section-sub">peek inside, borrow an idea, or tell me what broke:</p>
+      <div class="repos">
+        <a class="repo tilt-l" href="https://github.com/zkp6c4vr89-coder/ascii-studio-web" target="_blank" rel="noopener">
+          <pre aria-hidden="true">.-------.
+| &lt;web&gt; |
+'-------'</pre><b>ascii-studio-web</b><span>the studio + the GPU engine</span></a>
+        <a class="repo tilt-r" href="https://github.com/zkp6c4vr89-coder/ascii-studio-extension" target="_blank" rel="noopener">
+          <pre aria-hidden="true">.-------.
+| {ext} |
+'-------'</pre><b>ascii-studio-extension</b><span>right-click magic + new tabs</span></a>
+        <a class="repo tilt-l" href="https://github.com/zkp6c4vr89-coder/ascii-studio-desktop" target="_blank" rel="noopener">
+          <pre aria-hidden="true">.-------.
+| [app] |
+'-------'</pre><b>ascii-studio-desktop</b><span>mac · windows · linux</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================ FOOTER -->
+  <footer class="footer">
+    <canvas id="garden-foot" class="garden small" aria-hidden="true"></canvas>
+    <div class="foot-inner">
+      <p>made by <b>Nandhu</b>, one character at a time ·
+        <a href="https://github.com/zkp6c4vr89-coder" target="_blank" rel="noopener">github</a></p>
+      <p class="small">no cookies were harmed (or used) in the making of this page.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
