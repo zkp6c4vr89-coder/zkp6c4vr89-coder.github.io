@@ -83,7 +83,9 @@ pre { margin: 0; font-family: var(--mono); }
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center;
   padding: 0 var(--gutter) 300px;
+  pointer-events: none;
 }
+.hero-inner > * { pointer-events: auto; }
 .eyebrow { font: 22px var(--pixel); color: var(--ink-2); margin: 0 0 4px; }
 .eyebrow .ok { color: var(--leaf); }
 .blink { animation: blink 1s steps(1) infinite; color: var(--tomato); }
@@ -93,9 +95,8 @@ pre { margin: 0; font-family: var(--mono); }
 .tagline { max-width: 680px; margin: 8px 0 18px; font-size: clamp(18px, 2.4vw, 22px); line-height: 1.5; }
 .tagline em { font-style: italic; color: var(--tomato); }
 .tagline .scribble { display: block; margin-top: 6px; transform: rotate(-2deg); font-size: 1.4em; }
-.hint { font: 1.35rem var(--hand); color: var(--ink-2); margin: 18px 0 0; }
 
-.garden { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 280px; z-index: 1; cursor: crosshair; }
+.garden { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 280px; z-index: 1; }
 .garden.small { position: relative; height: 170px; cursor: default; }
 
 /* ---------------------------------------------------------------- buttons */

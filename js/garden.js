@@ -1,6 +1,5 @@
 // An ASCII garden. Stems grow up out of the grass, leaves unfurl, buds swell and bloom.
-// Flowers sway in the breeze and lean away from the cursor; butterflies drift about;
-// clicking the ground plants a new flower right there.
+// Flowers sway in the breeze and lean away from the cursor; butterflies drift about.
 
 const KINDS = {
   //            sprite rows (top → bottom)            petal colour       centre colour
@@ -36,7 +35,6 @@ export class Garden {
     if (interactive) {
       canvas.addEventListener("pointermove", (e) => (this.mouse = this.toCell(e)));
       canvas.addEventListener("pointerleave", () => (this.mouse = null));
-      canvas.addEventListener("pointerdown", (e) => this.plant(this.toCell(e).x));
     }
     new IntersectionObserver(([e]) => (this.visible = e.isIntersecting)).observe(canvas);
     requestAnimationFrame((t) => this.frame(t));
@@ -88,14 +86,6 @@ export class Garden {
     for (let i = 0; i < flyCount; i++) {
       this.flies.push({ x: rand(0, this.cols), y: rand(1, this.rows * 0.6), vx: rand(-3, 3), vy: 0, phase: rand(0, 6), col: pick(["#ee7aa6", "#1f8a86", "#e3a92b", "#6d4ad6"]) });
     }
-  }
-
-  plant(x) {
-    const col = Math.round(x);
-    if (col < 2 || col > this.cols - 3) return;
-    this.flowers = this.flowers.filter((f) => Math.abs(f.col - col) > 1);   // make room
-    this.flowers.push(this.newFlower(col, 0));
-    if (this.flowers.length > this.cols / 2.5) this.flowers.shift();          // the oldest makes way
   }
 
   step(dt, t) {

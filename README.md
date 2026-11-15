@@ -5,8 +5,8 @@ numbers and symbols. Made by Nandhu.
 
 Live at **https://zkp6c4vr89-coder.github.io**
 
-- A title that draws itself in characters, and a garden of ASCII flowers that grow and bloom
-  (click the ground to plant one)
+- A title that draws itself in characters, and a garden of ASCII flowers that grow, bloom
+  and lean away from your cursor
 - Everything about the [web studio](https://zkp6c4vr89-coder.github.io/ascii-studio-web/),
   the [browser extension](https://github.com/zkp6c4vr89-coder/ascii-studio-extension) and the
   [desktop app](https://github.com/zkp6c4vr89-coder/ascii-studio-desktop/releases/latest)
