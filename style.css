@@ -382,3 +382,24 @@ section { max-width: 1120px; margin: 0 auto; padding: 72px 0 24px; }
   .sticker { right: 10px; font-size: 1.3rem; }
   .btn { font-size: 20px; }
 }
+
+/* ---------------------------------------------------------------- extension: customise box */
+.customise {
+  margin: 4px 0 24px;
+  padding: 18px 20px 16px;
+  background: var(--paper);
+  border: 2px dashed var(--ink);
+  border-radius: 10px;
+}
+.customise-title { margin: 0 0 10px; font-size: 18px; }
+.customise-title .scribble { font-size: 1.5em; margin-right: 6px; display: inline-block; transform: rotate(-2deg); }
+.ticks.two-col { columns: 2; column-gap: 28px; margin-bottom: 14px; }
+.ticks.two-col li { break-inside: avoid; }
+.ticks.two-col li { font-size: 15.5px; }
+.dots { display: flex; flex-wrap: wrap; gap: 8px; }
+.dots i {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--c); border: 2px solid var(--ink); box-shadow: 2px 2px 0 var(--ink);
+}
+.dots i.rainbow { background: conic-gradient(from 90deg, #ff5f5f, #ffd23f, #3ee07a, #3fd6ff, #9b7bff, #ff6fae, #ff5f5f); }
+@media (max-width: 860px) { .ticks.two-col { columns: 1; } }
