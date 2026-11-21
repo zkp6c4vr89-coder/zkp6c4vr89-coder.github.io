@@ -403,3 +403,15 @@ section { max-width: 1120px; margin: 0 auto; padding: 72px 0 24px; }
 }
 .dots i.rainbow { background: conic-gradient(from 90deg, #ff5f5f, #ffd23f, #3ee07a, #3fd6ff, #9b7bff, #ff6fae, #ff5f5f); }
 @media (max-width: 860px) { .ticks.two-col { columns: 1; } }
+
+/* ---------------------------------------------------------------- support (ko-fi) */
+.kofi { display: grid; grid-template-columns: auto 1fr; gap: 30px; align-items: center; max-width: 860px; margin: 0 auto; }
+.kofi .cup {
+  font-size: clamp(14px, 1.7vw, 19px); line-height: 1.2;
+  color: var(--tomato); background: var(--night);
+  padding: 22px 26px; border-radius: 10px; border: 2px solid var(--ink);
+  text-shadow: 0 0 10px rgba(232, 85, 61, 0.45);
+}
+.kofi h2 { font: 700 clamp(26px, 3.6vw, 36px)/1.15 var(--serif); margin: 0 0 8px; letter-spacing: -0.02em; }
+.kofi p { margin: 0 0 16px; }
+@media (max-width: 860px) { .kofi { grid-template-columns: 1fr; justify-items: start; } }
