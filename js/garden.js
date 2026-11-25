@@ -58,6 +58,10 @@ export class Garden {
     this.canvas.height = h * dpr;
     this.dpr = dpr;
     this.grass = Array.from({ length: this.cols * 2 }, () => ({ c: pick(GRASS), g: rand(0.55, 1) }));
+    // December to 6 January: a little snow falls over the garden
+    const now = new Date();
+    this.snowy = now.getMonth() === 11 || (now.getMonth() === 0 && now.getDate() <= 6);
+    this.snow = this.snowy ? Array.from({ length: Math.round((this.cols * this.rows) / 45) }, () => ({ x: rand(0, this.cols), y: rand(0, this.rows), z: Math.random() })) : [];
   }
 
   newFlower(col, delay = 0) {
@@ -172,6 +176,13 @@ export class Garden {
           this.put(headX - Math.floor(row.length / 2) + i, y, c, CENTRE.has(c) ? kind.centre : kind.petal);
         });
       });
+    }
+
+    for (const f of this.snow) {
+      if (!this.reduce) { f.y += (0.02 + 0.05 * f.z); f.x += Math.sin(t + f.z * 9) * 0.01; }
+      if (f.y > rows - 1) { f.y = 0; f.x = rand(0, this.cols); }
+      const a = 0.35 + 0.55 * f.z;
+      this.put(Math.round(f.x), Math.round(f.y), f.z > 0.7 ? "*" : ".", this.dark ? `rgba(235,242,255,${a})` : `rgba(70,95,150,${a})`);
     }
 
     for (const b of this.flies) {
